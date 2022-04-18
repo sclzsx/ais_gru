@@ -10,7 +10,7 @@ import numpy as np
 # 'Timestamp', 'MMSI', 'Latitude', 'Longitude', 'SOG', 'COG'
 fields = [0, 1, 2, 3, 4, 5]
 n_rows = 30000              # Pulls this many rows of data, because all of it is too much
-df = pd.read_csv('../dataset/raw/20w_capture.csv', skipinitialspace=True, usecols=fields, nrows=n_rows, encoding='gb2312')
+df = pd.read_csv('./dataset/raw/20w_capture.csv', skipinitialspace=True, usecols=fields, nrows=n_rows, encoding='gb2312')
 df['Receivedtime（UTC+8）'] = pd.to_datetime(df['Receivedtime（UTC+8）'])
 df.set_index('Receivedtime（UTC+8）',inplace=True)
 data = df.resample('5T').mean()
@@ -58,7 +58,7 @@ while i in range(n_rows):
         df[start+1:i+1, 0] = diff_array
     i += 1
 
-np.savez('../dataset/raw/20w_new.npz', sorted_data=df)
+np.savez('./dataset/raw/20w_new.npz', sorted_data=df)
 
 print('----------------------------------------------------')
 print('End of danish_pull_data.py')

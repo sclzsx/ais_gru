@@ -6,7 +6,7 @@
 from datetime import datetime
 import numpy as np
 import os
-from models.network import *
+from network import *
 import numpy as np
 import torch
 import torch.nn as nn
@@ -29,7 +29,7 @@ parser.add_argument('--hidden_size', type=int, default=20, help='the output leng
 parser.add_argument('--num_layers', type=int, default=3, help='the number of lstm layer(vertical)')
 parser.add_argument('--out_size', type=int, default=2, help='the length of predicted sequence')
 parser.add_argument('--seq_len', type=int, default=5, help='the length of predicted sequence')
-parser.add_argument('--batch_size', type=int, default=64, help='size of the batches')
+parser.add_argument('--batch_size', type=int, default=1, help='size of the batches')
 parser.add_argument('--n_epoch', type=int, default=100, help='number of epochs of training')
 parser.add_argument('--lr', type=float, default=0.0001, help='adam: learning rate')
 parser.add_argument('--b1', type=float, default=0.9, help='adam: decay of first order momentum of gradient')
@@ -122,4 +122,4 @@ for epoch in range(1, opt.n_epoch + 1):
     print('Epoch: {} Test...'.format(epoch))
     print('Test mse: {}'.format(mse))
 
-# tsbd = TensorBoard(log_dir='../../logs/'+use_rnn_type,histogram_freq=0,write_graph=True,write_images=False)
+# tsbd = TensorBoard(log_dir='././logs/'+use_rnn_type,histogram_freq=0,write_graph=True,write_images=False)

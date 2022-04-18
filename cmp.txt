@@ -1,0 +1,37 @@
+The lower the rmse or mae, the higher the prediction precision
+
+# original
+rmse_ 0.036058761617262354
+mae_ 0.0004053239516395936
+rmse_ 0.0561823489987215
+mae_ 0.0004945544954289727
+
+# modify time and remove resample
+rmse_ 0.036059916816342685
+mae_ 0.00010323579872531886
+rmse_ 0.02688636674587099
+mae_ 0.00014033607429249505
+
+# modify time and remove resample, split trails with speed
+rmse_ 0.02991316118683901
+mae_ 0.0004032381592523671
+rmse_ 0.0492476325180022
+mae_ 0.0004839962684040089
+
+# modify time and remove resample, split trails with time
+rmse_ 0.05343133077522952
+mae_ 0.00021338169781192864
+rmse_ 0.025881139227148214
+mae_ 0.00027652633613015315
+
+# modify time and remove resample, split trails with speed, set batchsize equals 1
+rmse_ 0.02601757009255576
+mae_ 0.00037244569997463365
+rmse_ 0.04404862552858632
+mae_ 0.00044679308711070603
+
+# modify time and remove resample, split trails with time, set batchsize equals 1
+rmse_ 0.07554543223658516
+mae_ 0.00019394431066935923
+rmse_ 0.035295440787310305
+mae_ 0.0002504283320362766

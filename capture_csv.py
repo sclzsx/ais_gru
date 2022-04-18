@@ -10,7 +10,7 @@ import numpy as np
 #获取有价值的列信息重建csv 第一步
 fields = [3, 12, 13, 19, 21, 22]
 n_rows = 20000              # Pulls this many rows of data, because all of it is too much
-df = pd.read_csv('../dataset/raw/20w.csv', skipinitialspace=True, usecols=fields, nrows=n_rows, encoding='gb2312')
+df = pd.read_csv('./dataset/raw/20w.csv', skipinitialspace=True, usecols=fields, nrows=n_rows, encoding='gb2312')
 # print(df)
 #交换顺序
 cols = list(df)
@@ -23,4 +23,4 @@ cols.insert(4, cols.pop(cols.index('Speed')))
 df.loc[:, ['MMSI', 'Course', 'Speed', 'Receivedtime（UTC+8）', 'Lon_d', 'Lat_d']] = df[['Receivedtime（UTC+8）', 'MMSI', 'Lat_d', 'Lon_d', 'Speed', 'Course']].values
 df.columns = cols
 print(df,'==============')
-df.to_csv('../dataset/raw/20w_capture.csv',encoding='gb2312',index=False)
+df.to_csv('./dataset/raw/20w_capture.csv',encoding='gb2312',index=False)

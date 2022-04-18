@@ -4,7 +4,7 @@
 日期：年月日
 """
 import sys
-sys.path.append('./process_data')
+# sys.path.append('./process_data')
 # sys.path.append('D:/Project/AIS/ckpt')
 from split_dataset import firsts
 from math import sin, cos, sqrt, atan2, radians
@@ -12,7 +12,7 @@ import pandas as pd
 
 # import folium
 
-from models.network import *
+from network import *
 import numpy as np
 import torch
 from torch.utils.data import DataLoader, TensorDataset
@@ -66,7 +66,7 @@ y_test1 = []
 k = 0
 last_count = 0
 for i, (test_input, test_label) in enumerate(test_loader):
-    print(test_input)
+    # print(test_input)
     test_y = model(test_input)
     # print(test_y.cpu().detach().numpy()[0].tolist(),'4444444444')
     pred = np.array(test_y.cpu().detach().numpy()[0].tolist())
@@ -170,10 +170,10 @@ def plot_rmse(y_test,y_predict):
     y_predict = y_predict.reshape(-1, n)
     y_test = y_test.reshape(-1, n)
     rmse_ = np.linalg.norm(y_test - y_predict, ord=2) / n ** 0.5
-    print(rmse_)
+    print('rmse_', rmse_)
 
     mae_ = np.linalg.norm(y_test - y_predict, ord=1) / n
-    print(mae_)
+    print('mae_', mae_)
 
 plot_rmse(y_test1[:, 0], prediction[:, 0])
 plot_rmse(y_test1[:, 1],prediction[:, 1])
